@@ -1,14 +1,23 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  var questionIndex = 0;
-
+class MyApp extends StatefulWidget {
   MyApp({super.key});
 
+  @override
+  State<StatefulWidget> createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
     print(questionIndex);
     // print("Answer 1 chosen !");
   }
@@ -17,7 +26,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     List<String> question = [
       "What's your favorite color ?",
-      "what's your favorite animal"
+      "what's your favorite animal",
+      "what's your favorite language"
     ];
 
     return MaterialApp(
