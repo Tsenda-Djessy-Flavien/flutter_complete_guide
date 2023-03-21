@@ -6,17 +6,17 @@ class MyApp extends StatefulWidget {
   MyApp({super.key});
 
   @override
-  State<StatefulWidget> createState() => MyAppState();
+  State<StatefulWidget> createState() => _MyAppState();
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
     // print("Answer 1 chosen !");
   }
 
@@ -37,9 +37,9 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             // Text(question.elementAt(0)),
-            Text(question[questionIndex]),
+            Text(question[_questionIndex]),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text('Answer 1'),
             ),
             ElevatedButton(
