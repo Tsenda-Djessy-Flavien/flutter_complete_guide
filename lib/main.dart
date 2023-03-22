@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/question.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<StatefulWidget> createState() => _MyAppState();
@@ -22,7 +23,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> question = [
+    List<String> questions = [
       "What's your favorite color ?",
       "what's your favorite animal",
       "what's your favorite language"
@@ -32,25 +33,27 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My First App'),
+          title: const Text('My First App'),
         ),
         body: Column(
           children: [
             // Text(question.elementAt(0)),
-            Text(question[_questionIndex]),
+            // Text(question[_questionIndex]),
+            // Question(questions[_questionIndex]),
+            Question(questionText: questions[_questionIndex]),
             ElevatedButton(
               onPressed: _answerQuestion,
-              child: Text('Answer 1'),
+              child: const Text('Answer 1'),
             ),
             ElevatedButton(
               onPressed: () {
                 print('Answer 2 chosen !');
               },
-              child: Text('Answer 2'),
+              child: const Text('Answer 2'),
             ),
             ElevatedButton(
               onPressed: () => print('Answer 3 chosen !'),
-              child: Text('Answer 3'),
+              child: const Text('Answer 3'),
             ),
           ],
         ),
